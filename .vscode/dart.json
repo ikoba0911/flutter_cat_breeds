@@ -1,0 +1,33 @@
+{
+    "Freezed class template generated": {
+        "prefix": [
+            "freezed"
+        ],
+        "description": "Create a Freezed class",
+        "body": [
+           "import 'package:freezed_annotation/freezed_annotation.dart';",
+           "import 'package:flutter/foundation.dart';",
+           "part '${TM_DIRECTORY/^(.*?lib\\\\?)|([^\\\\]+\\\\?)/${2:+../}/g}_generated${TM_DIRECTORY/^(.*?lib)|(\\\\)/${2:+/}/g}/${TM_FILENAME_BASE}.freezed.dart';",
+           "part '${TM_DIRECTORY/^(.*?lib\\\\?)|([^\\\\]+\\\\?)/${2:+../}/g}_generated${TM_DIRECTORY/^(.*?lib)|(\\\\)/${2:+/}/g}/${TM_FILENAME_BASE}.g.dart';",
+           "",
+           "@freezed",
+           "class ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}} with _$${1} {",
+           "\tconst factory ${1}({",
+           "\t\t${2:required String id},",
+           "\t}) = _${1};",
+           "\tfactory ${1}.fromJson(Map<String, dynamic> json) => _$${1}FromJson(json);",
+           "}"
+        ]
+    },
+    "import template generated": {
+        "prefix": [
+            "generated import"
+        ],
+        "description": "Create a Freezed class",
+        "body": [
+           "part '${TM_DIRECTORY/^(.*?lib\\\\?)|([^\\\\]+\\\\?)/${2:+../}/g}_generated${TM_DIRECTORY/^(.*?lib)|(\\\\)/${2:+/}/g}/${TM_FILENAME_BASE}.freezed.dart';",
+           "part '${TM_DIRECTORY/^(.*?lib\\\\?)|([^\\\\]+\\\\?)/${2:+../}/g}_generated${TM_DIRECTORY/^(.*?lib)|(\\\\)/${2:+/}/g}/${TM_FILENAME_BASE}.g.dart';",
+           ""
+        ]
+    }
+}
