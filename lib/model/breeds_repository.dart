@@ -7,11 +7,11 @@ part '../_generated/model/breeds_repository.g.dart';
 
 class QiitaListException implements Exception {}
 
-abstract class BreedListRepositoryInterface {
+abstract class BreedstRepositoryInterface {
   Future<List<Breed>> fetchBreeds();
 }
 
-final class BreedListRepository implements BreedListRepositoryInterface {
+final class BreedsRepository implements BreedstRepositoryInterface {
   @override
   Future<List<Breed>> fetchBreeds() async {
     return HttpClient().request(setting: BreedsRequestSetting());
@@ -19,6 +19,6 @@ final class BreedListRepository implements BreedListRepositoryInterface {
 }
 
 @riverpod
-BreedListRepository breedListRepository(BreedListRepositoryRef ref) {
-  return BreedListRepository();
+BreedsRepository breedsRepository(BreedsRepositoryRef ref) {
+  return BreedsRepository();
 }
