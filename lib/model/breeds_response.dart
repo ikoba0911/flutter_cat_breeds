@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '../_generated/model/cat_breeds_response.freezed.dart';
-part '../_generated/model/cat_breeds_response.g.dart';
+part '../_generated/model/breeds_response.freezed.dart';
+part '../_generated/model/breeds_response.g.dart';
 
 @freezed
 class BreedsResponse with _$BreedsResponse {

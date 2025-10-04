@@ -10,10 +10,12 @@ dependencies:
   flutter:
     sdk: flutter
   http: ^1.2.0
+  flutter_riverpod:
   
   # annotation
   freezed_annotation:
   json_annotation:
+  riverpod_annotation:
 
 dev_dependencies:
   flutter_test:
@@ -25,6 +27,9 @@ dev_dependencies:
   json_serializable:
   source_gen:
   freezed:
+  riverpod_generator:
+  custom_lint: ^0.6.2
+  riverpod_lint: ^2.3.10
 
 flutter:
   uses-material-design: true

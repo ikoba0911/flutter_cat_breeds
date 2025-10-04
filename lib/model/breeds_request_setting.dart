@@ -1,11 +1,10 @@
 import 'dart:convert';
 
 import 'package:flutter_cat_breeds/domain/breed.dart';
-import 'package:flutter_cat_breeds/model/cat_breeds_response.dart';
-import 'package:flutter_cat_breeds/util/http_client.dart';
+import 'package:flutter_cat_breeds/model/breeds_response.dart';
 import 'package:flutter_cat_breeds/util/http_request_setting.dart';
 
-class BreedsRequestSetting implements HttpRequestSetting<List<Breed>> {
+final class BreedsRequestSetting implements HttpRequestSetting<List<Breed>> {
   BreedsRequestSetting({this.limit = 10, this.page});
 
   final int limit;
@@ -14,9 +13,9 @@ class BreedsRequestSetting implements HttpRequestSetting<List<Breed>> {
   @override
   List<Breed> decode(dynamic data) {
     final map = json.decode(data) as Map<String, dynamic>;
-    final dto = BreedsResponse.fromJson(map);
+    final response = BreedsResponse.fromJson(map);
 
-    final list = dto.data
+    final list = response.data
         .map(
           (e) => Breed(
             breed: e.breed,
@@ -57,11 +56,5 @@ class BreedsRequestSetting implements HttpRequestSetting<List<Breed>> {
       params['page'] = page;
     }
     return params;
-  }
-}
-
-class BreedsRepository {
-  Future<List<Breed>> getBreeds() async {
-    return HttpClient().request(setting: BreedsRequestSetting());
   }
 }
