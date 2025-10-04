@@ -1,59 +1,53 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cat_breeds/domain/breed.dart';
+import 'package:flutter_cat_breeds/view/home_view_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class HomeScreen extends ConsumerStatefulWidget {
+final class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
   @override
   ConsumerState<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends ConsumerState<HomeScreen> {
-  // 表示用のデモデータ
-  final breeds = [
-    const Breed(
-      breed: 'breed1',
-      country: 'country',
-      origin: 'origin',
-      coat: 'coat',
-      pattern: 'pattern',
-    ),
-    const Breed(
-      breed: 'breed2',
-      country: 'country',
-      origin: 'origin',
-      coat: 'coat',
-      pattern: 'pattern',
-    ),
-    const Breed(
-      breed: 'breed3',
-      country: 'country',
-      origin: 'origin',
-      coat: 'coat',
-      pattern: 'pattern',
-    ),
-  ];
-
+final class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final state = ref.watch(homeViewModelProvider);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cat Breeds'),
+        title: const Text('Home'),
       ),
-      body: ListView.builder(
-        itemCount: breeds.length,
-        itemBuilder: (context, index) {
-          final breed = breeds[index];
-          return ListTile(
-            title: Text(breed.breed),
-            onTap: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('${breed.breed} tapped')),
+      body: state.when(
+        data: (breeds) {
+          return ListView.builder(
+            itemCount: breeds.length,
+            itemBuilder: (context, index) {
+              return Card(
+                child: ListTile(
+                  title: Text(breeds[index].breed),
+                ),
               );
             },
           );
         },
+        error: (error, _) => Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text('エラーが発生しました'),
+              const SizedBox(height: 8),
+              ElevatedButton(
+                onPressed: () {
+                  ref.invalidate(homeViewModelProvider);
+                },
+                child: const Text('再読み込み'),
+              ),
+            ],
+          ),
+        ),
+        loading: () => const Center(
+          child: CircularProgressIndicator(),
+        ),
       ),
     );
   }
