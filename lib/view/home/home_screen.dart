@@ -37,13 +37,13 @@ final class _HomeScreenState extends ConsumerState<HomeScreen> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Text('エラーが発生しました'),
+              const Text('An error occurred'),
               const SizedBox(height: 8),
               ElevatedButton(
                 onPressed: () {
                   ref.invalidate(homeViewModelProvider);
                 },
-                child: const Text('再読み込み'),
+                child: const Text('Retry'),
               ),
             ],
           ),
