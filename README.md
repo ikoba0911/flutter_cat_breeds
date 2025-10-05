@@ -1,6 +1,10 @@
 # flutter_cat_breeds
 
-A new Flutter project.
+猫の種類などが確認できるアプリです。
+
+| 項目 | ムービー |
+|:--:|:--:|
+| アプリの基本動作 | <video src="https://github.com/user-attachments/assets/f21f1d22-fade-4d17-a596-e3a1e667980e" width="320px"> |
 
 ## セットアップ手順
 
