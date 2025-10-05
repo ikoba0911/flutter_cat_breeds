@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cat_breeds/view/home_view_model.dart';
+import 'package:flutter_cat_breeds/router/app_route_name.dart';
+import 'package:flutter_cat_breeds/view/home/home_view_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final class HomeScreen extends ConsumerStatefulWidget {
@@ -22,9 +23,11 @@ final class _HomeScreenState extends ConsumerState<HomeScreen> {
           return ListView.builder(
             itemCount: breeds.length,
             itemBuilder: (context, index) {
-              return Card(
-                child: ListTile(
-                  title: Text(breeds[index].breed),
+              return _ContentCard(
+                title: breeds[index].breed,
+                onTap: () => Navigator.of(context).pushNamed(
+                  AppRouteName.detail,
+                  arguments: breeds[index],
                 ),
               );
             },
@@ -47,6 +50,33 @@ final class _HomeScreenState extends ConsumerState<HomeScreen> {
         ),
         loading: () => const Center(
           child: CircularProgressIndicator(),
+        ),
+      ),
+    );
+  }
+}
+
+final class _ContentCard extends StatelessWidget {
+  const _ContentCard({
+    required this.title,
+    required this.onTap,
+  });
+
+  final String title;
+  final VoidCallback onTap;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Card(
+        child: InkWell(
+          onTap: onTap,
+          child: Container(
+            alignment: Alignment.center,
+            height: 100,
+            width: double.infinity,
+            child: Text(title),
+          ),
         ),
       ),
     );
