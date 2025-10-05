@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cat_breeds/router/app_route_name.dart';
 import 'package:flutter_cat_breeds/router/app_router.dart';
-import 'package:flutter_cat_breeds/view/home_screen.dart';
+import 'package:flutter_cat_breeds/view/home/home_screen.dart';
 
-class App extends StatelessWidget {
+final class App extends StatelessWidget {
   const App({super.key});
 
   @override

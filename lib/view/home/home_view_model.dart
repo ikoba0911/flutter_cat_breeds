@@ -2,7 +2,7 @@ import 'package:flutter_cat_breeds/domain/breed.dart';
 import 'package:flutter_cat_breeds/model/breeds_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part '../_generated/view/home_view_model.g.dart';
+part '../../_generated/view/home/home_view_model.g.dart';
 
 @riverpod
 class HomeViewModel extends _$HomeViewModel {
