@@ -1,10 +1,11 @@
 # flutter_cat_breeds
 
 猫の種類などが確認できるアプリです。
+猫の種類は10件のみ確認できます。
 
 | 項目 | ムービー |
 |:--:|:--:|
-| アプリの基本動作 | <video src="https://github.com/user-attachments/assets/f21f1d22-fade-4d17-a596-e3a1e667980e" width="320px"> |
+| アプリの基本動作 | <video src="https://github.com/user-attachments/assets/8c5bca46-7df8-414e-a422-387c0f06db05" width="320px"> |
 
 ## セットアップ手順
 
